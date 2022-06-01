@@ -1,1 +1,2 @@
-web: gunicorn thebbc:app -b 0.0.0.0:80
+# web: gunicorn thebbc:app
+web: python thebbc.py --port=80
