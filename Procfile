@@ -1,2 +1,1 @@
-# web: gunicorn thebbc:app
-web: python thebbc.py
+web: gunicorn thebbc:app
