@@ -1,1 +1,1 @@
-web: gunicorn thebbc:app
+web: gunicorn -b 0.0.0.0:80 thebbc:app
