@@ -5,8 +5,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello():
-    res = requests.get('https://ria.ru/authors/')
-    return 'hello' + str(res.status_code)
+    try:
+        res1 = requests.get('https://ria.ru/authors/')
+        res2 = requests.get('https://ria.ru/')
+        res3 = requests.get('https://google.com')
+        return 'hello' + str(res1.status_code) + str(res1.status_code) + str(res1.status_code)
+    except:
+        return 'Error'
 
 if __name__=="__main__":
     app.run(debug=True)
