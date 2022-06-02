@@ -2,6 +2,7 @@ from flask import Flask
 import requests
 import os
 import yadisk
+from sys import platform
 
 
 app = Flask(__name__)
@@ -27,6 +28,7 @@ def hello():
         Ria = {str(res2.status_code)}
         Google = {str(res3.status_code)}
         Yandex = ok.
+        {platform}
         '''
 
     except:
