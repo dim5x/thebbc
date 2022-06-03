@@ -1,131 +1,178 @@
-# from flask import Flask, render_template
-# import requests
-# import os
-# import yadisk
-# from sys import platform
-#
-# app = Flask(__name__)
-# app.template_folder = 'template'
-#
-#
-# @app.route('/', methods=['GET'])
-# def hello():
-#     # try:
-#     #     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) '
-#     #                              'Chrome/41.0.2228.0 Safari/537.3'}
-#     #     res1 = requests.get('https://github.com/', headers=headers)
-#     #     res2 = requests.get('https://ria.ru/', headers=headers)
-#     #     res3 = requests.get('https://google.com', headers=headers)
-#     #
-#     #     try:
-#     y = yadisk.YaDisk(token='AQAAAAAHBpK9AAfzjZd-UO44LUPQqAIrb7HeYEI')
-#     # y.upload("requirements.txt", "/test-dir/requirements.txt")
-#     l = list(y.listdir("/test-dir"))
-#     print(l)
-#     for i in l:
-#         print(f"Имя: {i['name']}, дата: {i['created'].strftime('%d.%m.%y')}, "
-#               f"время: {i['created'].strftime('%H:%M:%S')}, размер: {i['size']}.")
-#     return render_template('index.html', l=l)
-#
-#
-# # except:
-# #     return 'Ya error'
-#
-# # return f'''hello
-# # Github = {str(res1.status_code)}
-# # Ria = {str(res2.status_code)}
-# # Google = {str(res3.status_code)}
-# # Yandex = ok.
-# # {platform}
-# # '''
-#
-# # except:
-# #     return 'Error'
-#
-#
-# if __name__ == "__main__":
-#     app.run(debug=True)
-"""
-Example of serving a Flexx app using a regular web server. In this case flask.
-See serve_with_aiohttp.py for a slightly more advanced example.
-"""
+# -*- coding: utf-8 -*-
 
-# from flask import Flask
-
-from flexx import flx, ui, event
-from flexxamples.howtos.editor_cm import CodeEditor
+from remi.gui import *
+from remi import start, App
 
 
-# Define an app
+class untitled(App):
+    def __init__(self, *args, **kwargs):
+        # DON'T MAKE CHANGES HERE, THIS METHOD GETS OVERWRITTEN WHEN SAVING IN THE EDITOR
+        if not 'editing_mode' in kwargs.keys():
+            super(untitled, self).__init__(*args, static_file_path={'my_res': './res/'})
 
-class AppLayoutExample(flx.Widget):
-    def init(self):
-        with flx.VBox():
-            flx.Label(style='background:#cfc;', wrap=1,
-                      text='Here is some content at the top for which we want to '
-                           'use minimal size. Thus the use of a VBox. '
-                           'Below is a splitter, with a box layout on the left '
-                           'and a fix layout on the right.')
+    def idle(self):
+        # idle function called every update cycle
+        pass
 
-            with flx.HSplit(flex=1):
-                with flx.VBox(style='border:1px solid #777;'):
-                    flx.Label(text='Flex 0 0 0')
-                    with flx.HBox(flex=0):
-                        self.b1 = flx.Button(text='Hi')
-                        self.b2 = flx.Button(text='Helloooo world!')
-                        self.b3 = flx.Button(text='Foo bar')
+    def main(self):
+        return untitled.construct_ui(self)
 
-                    flx.Label(text='Flex 1 1 1')
-                    with flx.HBox(flex=0):
-                        self.b1 = flx.Button(flex=1, text='Hi')
-                        self.b2 = flx.Button(flex=1, text='Helloooo world!')
-                        self.b3 = flx.Button(flex=1, text='Foo bar')
+    @staticmethod
+    def construct_ui(self):
+        # DON'T MAKE CHANGES HERE, THIS METHOD GETS OVERWRITTEN WHEN SAVING IN THE EDITOR
+        vbox0 = VBox()
+        vbox0.attr_class = "VBox"
+        vbox0.attr_editor_newclass = False
+        vbox0.css_align_items = "center"
+        vbox0.css_align_self = "center"
+        vbox0.css_background_color = "rgb(146,197,159)"
+        vbox0.css_border_style = "solid"
+        vbox0.css_border_width = "0px"
+        vbox0.css_display = "flex"
+        vbox0.css_flex_direction = "column"
+        vbox0.css_height = "100%"
+        vbox0.css_justify_content = "space-around"
+        vbox0.css_left = "0px"
+        vbox0.css_position = "absolute"
+        vbox0.css_top = "0px"
+        vbox0.css_width = "100%"
+        vbox0.variable_name = "vbox0"
+        hbox0 = HBox()
+        hbox0.attr_class = "HBox"
+        hbox0.attr_editor_newclass = False
+        hbox0.css_align_items = "center"
+        hbox0.css_background_color = "rgb(146,197,159)"
+        hbox0.css_border_style = "solid"
+        hbox0.css_border_width = "0px"
+        hbox0.css_display = "flex"
+        hbox0.css_flex_direction = "row-reverse"
+        hbox0.css_height = "50%"
+        hbox0.css_justify_content = "space-around"
+        hbox0.css_order = "-1"
+        hbox0.css_position = "static"
+        hbox0.css_top = "0px"
+        hbox0.css_visibility = "visible"
+        hbox0.css_width = "100%"
+        hbox0.variable_name = "hbox0"
+        container1 = Container()
+        container1.attr_class = "Container"
+        container1.attr_editor_newclass = False
+        container1.css_align_content = "inherit"
+        container1.css_align_items = "baseline"
+        container1.css_align_self = "inherit"
+        container1.css_border_radius = "5px"
+        container1.css_border_style = "solid"
+        container1.css_border_width = "1px"
+        container1.css_flex = "-1"
+        container1.css_flex_direction = "column-reverse"
+        container1.css_flex_flow = "inherit"
+        container1.css_flex_wrap = "wrap-reverse"
+        container1.css_float = "none"
+        container1.css_height = "100%"
+        container1.css_justify_content = "space-around"
+        container1.css_order = "0"
+        container1.css_position = "static"
+        container1.css_top = "0px"
+        container1.css_width = "49%"
+        container1.variable_name = "container1"
+        hbox1 = HBox()
+        hbox1.attr_class = "HBox"
+        hbox1.attr_editor_newclass = False
+        hbox1.css_align_items = "center"
+        hbox1.css_background_color = "rgb(255,255,255)"
+        hbox1.css_display = "flex"
+        hbox1.css_flex_direction = "row"
+        hbox1.css_height = "50%"
+        hbox1.css_justify_content = "space-around"
+        hbox1.css_left = "0px"
+        hbox1.css_position = "inherit"
+        hbox1.css_top = "0px"
+        hbox1.css_visibility = "visible"
+        hbox1.css_width = "100%"
+        hbox1.variable_name = "hbox1"
+        textinput0 = TextInput()
+        textinput0.attr_editor_newclass = False
+        textinput0.attr_maxlength = "499"
+        textinput0.attr_title = "Input link here."
+        textinput0.css_height = "30px"
+        textinput0.css_order = "-1"
+        textinput0.css_position = "static"
+        textinput0.css_top = "154.5749969482422px"
+        textinput0.css_width = "75%"
+        textinput0.text = ""
+        textinput0.variable_name = "textinput0"
+        hbox1.append(textinput0, 'textinput0')
+        button0 = Button()
+        button0.attr_class = "Button"
+        button0.attr_editor_newclass = False
+        button0.attr_title = "Push me!"
+        button0.css_height = "30px"
+        button0.css_order = "-1"
+        button0.css_position = "static"
+        button0.css_top = "132.5749969482422px"
+        button0.css_width = "100px"
+        button0.text = "Send"
+        button0.variable_name = "button0"
+        hbox1.append(button0, 'button0')
+        container1.append(hbox1, 'hbox1')
+        hbox0.append(container1, 'container1')
+        container2 = Container()
+        container2.attr_class = "Container"
+        container2.attr_editor_newclass = False
+        container2.css_border_radius = "5px"
+        container2.css_border_style = "solid"
+        container2.css_border_width = "1px"
+        container2.css_height = "100%"
+        container2.css_order = "-1"
+        container2.css_position = "static"
+        container2.css_top = "0px"
+        container2.css_width = "49%"
+        container2.variable_name = "container2"
+        hbox0.append(container2, 'container2')
+        vbox0.append(hbox0, 'hbox0')
+        container0 = Container()
+        container0.attr_class = "Container"
+        container0.attr_editor_newclass = False
+        container0.css_background_color = "rgb(176,177,169)"
+        container0.css_border_color = "rgb(28,0,0)"
+        container0.css_border_radius = "5px"
+        container0.css_border_style = "solid"
+        container0.css_border_width = "1px"
+        container0.css_color = "rgb(0,0,0)"
+        container0.css_height = "47%"
+        container0.css_order = "-1"
+        container0.css_position = "static"
+        container0.css_top = "49%"
+        container0.css_width = "99%"
+        container0.variable_name = "container0"
+        tablewidget0 = TableWidget()
+        tablewidget0.attr_class = "TableWidget"
+        tablewidget0.attr_editor_newclass = False
+        tablewidget0.column_count = 4
+        tablewidget0.css_display = "table"
+        tablewidget0.css_float = "none"
+        tablewidget0.css_height = "100px"
+        tablewidget0.css_left = "75.0px"
+        tablewidget0.css_position = "inherit"
+        tablewidget0.css_top = "345.0px"
+        tablewidget0.css_width = "100%"
+        tablewidget0.row_count = 4
+        tablewidget0.use_title = True
+        tablewidget0.variable_name = "tablewidget0"
+        container0.append(tablewidget0, 'tablewidget0')
+        vbox0.append(container0, 'container0')
 
-                    flx.Label(text='Flex 1 0 3')
-                    with flx.HBox(flex=0):
-                        self.b1 = flx.Button(flex=1, text='Hi')
-                        self.b2 = flx.Button(flex=0, text='Helloooo world!')
-                        self.b3 = flx.Button(flex=3, text='Foo bar')
-
-                    # flx.Widget(flex=1)  # spacer widget
-
-                with flx.VFix(style='border:1px solid #777;'):
-                    flx.Label(text='Flex 0 0 0 (space divided equally)', style='')
-                    with flx.HFix():
-                        self.b1 = flx.Button(text='Hi')
-                        self.b2 = flx.Button(text='Helloooo world!')
-                        self.b3 = flx.Button(text='Foo bar')
-
-                    flx.Label(text='Flex 1 1 1', style='')
-                    with flx.HFix():
-                        self.b1 = flx.Button(flex=1, text='Hi')
-                        self.b2 = flx.Button(flex=1, text='Helloooo world!')
-                        self.b3 = flx.Button(flex=1, text='Foo bar')
-
-                    flx.Label(text='Flex 1 0 3 (the widget with zero collapses')
-                    with flx.HFix():
-                        self.b1 = flx.Button(flex=1, text='Hi')
-                        self.b2 = flx.Button(flex=0, text='Helloooo world!')
-                        self.b3 = flx.Button(flex=3, text='Foo bar')
-
-    # @event.reaction('line.user_text')
-    # def when_user_changes_text(self, *events):
-    #     self.l1.set_text('user_text: ' + self.line.text)
-    #
-    # @event.reaction('line.user_done')
-    # def when_user_is_done_changing_text(self, *events):
-    #     self.l2.set_text('user_done: ' + self.line.text)
-    #
-    # @event.reaction('line.submit')
-    # def when_user_submits_text(self, *events):
-    #     self.l3.set_text('submit: ' + self.line.text)
+        self.vbox0 = vbox0
+        return self.vbox0
 
 
-# Dump it to a dictionary of assets that we can serve. Make the main
-# page index.html. The link=0 means to pack the whole app into a single
-# html page (note that data (e.g. images) will still be separate).
-# fl_app = flx.App(MyApp)
-# assets = fl_app.dump('index1.html', link=0)
-if __name__ == '__main__':
-    m = flx.launch(AppLayoutExample)
-    flx.run()
+# Configuration
+configuration = {'config_project_name': 'untitled', 'config_address': '0.0.0.0', 'config_port': 8081,
+                 'config_multiple_instance': True, 'config_enable_file_cache': True, 'config_start_browser': True,
+                 'config_resourcepath': './res/'}
+if __name__ == "__main__":
+    # start(MyApp,address='127.0.0.1', port=8081, multiple_instance=False,enable_file_cache=True, update_interval=0.1, start_browser=True)
+    start(untitled, address=configuration['config_address'], port=configuration['config_port'],
+          multiple_instance=configuration['config_multiple_instance'],
+          enable_file_cache=configuration['config_enable_file_cache'],
+          start_browser=configuration['config_start_browser'])
