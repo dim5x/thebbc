@@ -1,1 +1,1 @@
-web: gunicorn thebbc:app
+web: gunicorn thebbc:app --preload
