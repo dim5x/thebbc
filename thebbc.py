@@ -10,6 +10,13 @@ TOKEN = os.environ['TOKEN_BBC']
 y = yadisk.YaDisk(token=TOKEN)
 
 
+def convert_bytes(size: int) -> str:
+    for x in ['bytes', 'KB', 'MB', 'GB']:
+        if size < 1024.0:
+            return f'{size:.2f} {x}'
+        size /= 1024.0
+
+
 @app.route('/', methods=['GET', 'POST'])
 def hello():
     flag = True
@@ -62,7 +69,7 @@ def hello():
         print('Запрос списка файлов в Яндексе.')
         for i in y.listdir("/BBC/download"):
             d = {'link': i['file'],
-                 'size': i['size'],
+                 'size': convert_bytes(int(i['size'])),
                  'name': i['name'],
                  'date': i['created'].strftime('%d.%m.%y - %H:%M:%S')}
             data.append(d)
