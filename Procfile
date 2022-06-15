@@ -1,1 +1,1 @@
-worker: python thebbc.py
+web: gunicorn thebbc:app
