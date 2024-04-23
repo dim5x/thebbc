@@ -17,7 +17,7 @@ pycparser==2.21
 Pygments==2.12.0
 requests==2.27.1
 soupsieve==2.3.2.post1
-urllib3==1.26.9
+urllib3==1.26.18
 webruntime==0.5.8
 Werkzeug==2.2.3
 yadisk==1.2.15
