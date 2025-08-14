@@ -15,7 +15,7 @@ MarkupSafe==2.1.1
 pscript==0.7.7
 pycparser==2.21
 Pygments==2.15.0
-requests==2.31.0
+requests==2.32.4
 soupsieve==2.3.2.post1
 urllib3==1.26.19
 webruntime==0.5.8
