@@ -19,5 +19,5 @@ requests==2.32.4
 soupsieve==2.3.2.post1
 urllib3==2.5.0
 webruntime==0.5.8
-Werkzeug==3.0.6
+Werkzeug==3.1.4
 yadisk==1.2.15
